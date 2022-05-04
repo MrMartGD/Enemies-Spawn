@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _bulletCreator;
-    [SerializeField] private Bullet _bullet;
+    [SerializeField] private Rigidbody _bullet;
     [SerializeField] private AudioSource _shootSound;
     [SerializeField] private float _speedRotate;
     [SerializeField] private float _speedBullet = 20f;
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        RotatePlayer();
+        Rotate();
         Shoot();
     }
 
-    private void RotatePlayer() 
+    private void Rotate() 
     {
         _angle += Input.GetAxis("Horizontal") * _speedRotate * Time.deltaTime;
         _angle = Mathf.Clamp(_angle, -90, -10);
@@ -36,9 +36,9 @@ public class Player : MonoBehaviour
         {
             Ray ray = new Ray(_bulletCreator.position, _bulletCreator.forward);
 
-            Bullet newBullet = Instantiate(_bullet, _bulletCreator.position, _bulletCreator.rotation);
-            newBullet.GetComponent<Rigidbody>().velocity = ray.direction * _speedBullet;
-            
+            Rigidbody newBullet = Instantiate(_bullet, _bulletCreator.position, _bulletCreator.rotation);
+            newBullet.velocity = ray.direction * _speedBullet;
+                        
             _shootSound.pitch = Random.Range(0.8f, 1.4f);
             _shootSound.Play();
             

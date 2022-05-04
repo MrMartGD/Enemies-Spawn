@@ -3,10 +3,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private float _lifeTime = 2f;
-    
-    private void Update()
+
+    private void Awake()
     {
-        TrackLifeTime();
+        Destroy(gameObject, _lifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -17,14 +17,4 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }    
-
-    private void TrackLifeTime() 
-    {
-        _lifeTime -= Time.deltaTime;
-
-        if (_lifeTime <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

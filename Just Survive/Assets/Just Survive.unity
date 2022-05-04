@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletCreator: {fileID: 1703436158}
-  _bullet: {fileID: 1279160228338067086, guid: d21d28741925ff94e9026aebb945280c, type: 3}
+  _bullet: {fileID: 7052310360324532533, guid: d21d28741925ff94e9026aebb945280c, type: 3}
   _shootSound: {fileID: 919132148339782313}
   _speedRotate: 50
   _speedBullet: 20

@@ -11,14 +11,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
-        if (enemy) 
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
             enemy.OnHit();
             Destroy(gameObject);
         }
-    }
+    }    
 
     private void TrackLifeTime() 
     {

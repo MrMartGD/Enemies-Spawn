@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: -5556560483474829207, guid: 94dda2ce9fbb2d4439f11b7acd0c624c, type: 3}
+  _enemyTarget: {fileID: 543450652276123666}
   _allSpawnPoints: {fileID: 180680002}
   _repeatTime: 2
   _repeatCount: 10

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private Transform _enemyTarget;
     [SerializeField] private Transform _allSpawnPoints;
     [SerializeField] private float _repeatTime = 2f;
     [SerializeField] private int _repeatCount = 10;
@@ -28,7 +29,8 @@ public class Spawner : MonoBehaviour
         
         for(int i = 0; i < _repeatCount; i++) 
         {
-            Instantiate(_enemy, _points[Random.Range(0, _points.Length)].position, Quaternion.Euler(0,90,0));
+            Enemy enemy = Instantiate(_enemy, _points[Random.Range(0, _points.Length)].position, Quaternion.Euler(0,90,0));
+            enemy.InitializedTarget(_enemyTarget);
             yield return waitForSeconds;
         }
     }

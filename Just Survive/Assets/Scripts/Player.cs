@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _bulletCreator;
@@ -10,7 +11,7 @@ public class Player : MonoBehaviour
         
     private float _angle;
     private Animator _animator;
-
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
             _shootSound.pitch = Random.Range(0.8f, 1.4f);
             _shootSound.Play();
             
-            _animator.SetTrigger("Shoot");
+            _animator.SetTrigger(AnimatorPlayerController.States.Shoot);
         }
     }
 }
